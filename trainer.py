@@ -56,7 +56,7 @@ class Trainer:
                                    num_classes=self.num_classes,
                                    eps=self.eps,
                                    device="cuda" if self.device == 'gpu' else 'cpu')
-            self.criterion = torch.nn.MSELoss()
+            self.criterion = self.model.regression_nllloss
 
         if args.device == 'gpu':
             self.model = self.model.to("cuda")
